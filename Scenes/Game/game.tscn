@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://di2e6gvxabmds"]
+
+[ext_resource type="Script" uid="uid://uyrexed1e4pm" path="res://Scenes/Game/game.gd" id="1_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://b0i2vfsq7qd5j" path="res://Scenes/Locations/MainLocations/fabric_start.tscn" id="2_i1e5p"]
+[ext_resource type="PackedScene" uid="uid://bod6wo027eqd0" path="res://Scenes/Characters/Player/player.tscn" id="3_wrm1d"]
+[ext_resource type="Script" uid="uid://chkkxkmfhhf2n" path="res://Scenes/Game/ui.gd" id="4_i1e5p"]
+
+[sub_resource type="Animation" id="Animation_ciybh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i1e5p"]
+resource_name = "change_location"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.967), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ciybh"]
+_data = {
+&"RESET": SubResource("Animation_ciybh"),
+&"change_location": SubResource("Animation_i1e5p")
+}
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_wrm1d")
+metadata/_edit_lock_ = true
+
+[node name="FabricStart" parent="." instance=ExtResource("2_i1e5p")]
+
+[node name="Player" parent="." instance=ExtResource("3_wrm1d")]
+position = Vector2(143, 76)
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("4_i1e5p")
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI"]
+libraries = {
+&"": SubResource("AnimationLibrary_ciybh")
+}

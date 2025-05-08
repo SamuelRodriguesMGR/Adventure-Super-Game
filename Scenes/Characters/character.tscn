@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfgorfgvav1jp"]
+
+[ext_resource type="Script" uid="uid://0h708n4kjevg" path="res://Scenes/Characters/character.gd" id="1_eu1pv"]
+[ext_resource type="Script" uid="uid://edaiiyyy0efv" path="res://Scenes/Characters/FSM.gd" id="2_lmtek"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lmtek"]
+radius = 3.0
+
+[node name="Character" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_eu1pv")
+
+[node name="FiniteStateMachine" type="Node" parent="."]
+script = ExtResource("2_lmtek")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_lmtek")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

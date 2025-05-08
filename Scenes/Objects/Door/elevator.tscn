@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://441kbcg56rlo"]
+
+[ext_resource type="PackedScene" uid="uid://xjbpnpfm8yex" path="res://Scenes/Objects/Door/door.tscn" id="1_po1kp"]
+[ext_resource type="Texture2D" uid="uid://dq2mo3utcwgly" path="res://Assets/Tileset/doors.png" id="2_wjjj6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuivi"]
+atlas = ExtResource("2_wjjj6")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsbjb"]
+atlas = ExtResource("2_wjjj6")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbkpy"]
+atlas = ExtResource("2_wjjj6")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mb2lv"]
+atlas = ExtResource("2_wjjj6")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmdy2"]
+atlas = ExtResource("2_wjjj6")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvqh2"]
+atlas = ExtResource("2_wjjj6")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jpxh"]
+atlas = ExtResource("2_wjjj6")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4d4g0"]
+atlas = ExtResource("2_wjjj6")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n2m1t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nuivi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsbjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbkpy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mb2lv")
+}],
+"loop": true,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmdy2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvqh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jpxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4d4g0")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="Elevator" instance=ExtResource("1_po1kp")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_n2m1t")
+
+[node name="Label" parent="." index="2"]
+text = "Закрыто"

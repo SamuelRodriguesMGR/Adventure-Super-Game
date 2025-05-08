@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://d3fv6ii7aoeq0"]
+
+[ext_resource type="PackedScene" uid="uid://xjbpnpfm8yex" path="res://Scenes/Objects/Door/door.tscn" id="1_2na67"]
+[ext_resource type="Texture2D" uid="uid://dq2mo3utcwgly" path="res://Assets/Tileset/doors.png" id="2_o74mv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mct1"]
+atlas = ExtResource("2_o74mv")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g04tj"]
+atlas = ExtResource("2_o74mv")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_waupv"]
+atlas = ExtResource("2_o74mv")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsm4x"]
+atlas = ExtResource("2_o74mv")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o74mv"]
+atlas = ExtResource("2_o74mv")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klbhk"]
+atlas = ExtResource("2_o74mv")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovs0d"]
+atlas = ExtResource("2_o74mv")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myuue"]
+atlas = ExtResource("2_o74mv")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_klbhk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mct1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g04tj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_waupv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsm4x")
+}],
+"loop": true,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o74mv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klbhk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovs0d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myuue")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o74mv"]
+radius = 2.5
+
+[node name="LonelyDoor" instance=ExtResource("1_2na67")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_klbhk")
+
+[node name="Area2D" parent="." index="7"]
+position = Vector2(0, 5)
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_o74mv")
